@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>FOSS Movies</title>
+    <title>Search songs</title>
 </head>
 <body>
-    
-    <script src="script.js"></script>
+    <div class="md:w-[584px] mx-auto mt-7 flex w-[92%] items-center rounded-full border hover:shadow-md">
+        <div class="pl-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <input id="searchInput" type="text" class="w-full bg-transparent rounded-full py-[14px] pl-4 outline-none" placeholder="Search Artist ..." ></input>
+    </div>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

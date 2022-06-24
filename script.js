@@ -10,6 +10,13 @@ const options = {
 	}
 };
 
+function destructuring (res){
+    const {response: {hits}} = res;
+    hits.forEach(hits => {
+        const {result : {artist_names : artistName, full_title: fullTitle, header_image_thumbnail_url : thumbnails, release_date_components: releaseDate}} = hits;
+    })
+}
+
 function fetchingApi (){
     fetch(`https://genius.p.rapidapi.com/search?q=${artist}`, options)
         .then(response => response.json())

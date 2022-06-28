@@ -21,9 +21,9 @@ function destructuring (res){
 
 function render (artistName, fullTitle, thumbnails, releaseDate){
     var div = document.createElement('div');
-    div.setAttribute('class', 'flex flex-col max-w-sm');
+    div.setAttribute('class', 'flex flex-col w-64 h-70');
     div.innerHTML = `
-    <img src="${thumbnails}" alt="" class="rounded">
+    <img src="${thumbnails}" alt="" class="rounded w-64 h-64">
     <div class="p-4 flex flex-col gap-y-1">
         <h2 class="text-2xl font-medium">${artistName}</h2>
         <h4 class="text-base">${fullTitle}</h4>
@@ -37,7 +37,6 @@ function render (artistName, fullTitle, thumbnails, releaseDate){
 function fetchingApi (){
     fetch(`https://genius.p.rapidapi.com/search?q=${artist}`, options)
         .then(response => response.json())
-        // .then(response => console.log(response))
         .then(response => destructuring(response))
         .catch(err => console.error(err))
 }
@@ -45,7 +44,6 @@ function fetchingApi (){
 userSearch.addEventListener('keypress', (event) => {
     if (event.key === 'Enter'){
         artist = userSearch.value;
-        // isSearching ? isSearching = false : fetchingApi();
         if (isSearching){
             while (container.firstChild){
                 container.removeChild(container.lastChild);

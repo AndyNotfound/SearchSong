@@ -1,7 +1,7 @@
 import {apiKey, apiHost} from './api.js';
 const userSearch = document.querySelector('#searchInput');
 const container = document.querySelector('#container')
-let artist, isSearching, isRendering;
+let artist, isSearching;
 
 const options = {
 	method: 'GET',
@@ -23,14 +23,15 @@ function render (artistName, fullTitle, thumbnails, releaseDate){
     var div = document.createElement('div');
     div.setAttribute('class', 'flex flex-col max-w-sm');
     div.innerHTML = `
-        <img src="${thumbnails}" alt="" class="rounded">
-        <div class="p-4 flex flex-col gap-y-1">
-            <h2 class="text-2xl font-medium">${artistName}</h2>
-            <h4 class="text-base">${fullTitle}</h4>
-            <p class="text-sm">${releaseDate}</p>
-        </div>
+    <img src="${thumbnails}" alt="" class="rounded">
+    <div class="p-4 flex flex-col gap-y-1">
+        <h2 class="text-2xl font-medium">${artistName}</h2>
+        <h4 class="text-base">${fullTitle}</h4>
+        <p class="text-sm">${releaseDate}</p>
+    </div>
     `;
     container.appendChild(div);
+    isSearching = true;
 }
 
 function fetchingApi (){
@@ -42,9 +43,17 @@ function fetchingApi (){
 }
 
 userSearch.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter'){ 
-        isSearching = true;
+    if (event.key === 'Enter'){
         artist = userSearch.value;
-        isSearching ? fetchingApi() : isSearching = false;
+        // isSearching ? isSearching = false : fetchingApi();
+        if (isSearching){
+            while (container.firstChild){
+                container.removeChild(container.lastChild);
+            }
+            isSearching = false;
+            fetchingApi();
+        } else {
+            fetchingApi ();
+        }
     }
 })

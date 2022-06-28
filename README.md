@@ -5,7 +5,7 @@ In this project you can search for songs by Artist name. Built by using Genius A
 
 ## Technologies
 <ul>
-  <li>HTML</li>
-  <li>JavaScript</li>
-  <li>Tailwind </li>
+  <li>HTML - HTML is the standard markup language for Web pages.</li>
+  <li>JavaScript - JavaScript is the programming language of the Web.</li>
+  <li>Tailwind - Rapidly build modern websites without ever leaving your HTML.</li>
 </ul>

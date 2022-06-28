@@ -30,7 +30,7 @@ function render (artistName, fullTitle, thumbnails, releaseDate){
             <p class="text-sm">${releaseDate}</p>
         </div>
     `;
-    document.getElementById('container').appendChild(div);
+    container.appendChild(div);
 }
 
 function fetchingApi (){
